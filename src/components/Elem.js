@@ -1,8 +1,10 @@
 export default function Elem(props) {
-    console.log(Object.keys(props.ertek));
+    function kivalaszt(){
+        props.kivalaszt(props.ertek)
+    }
     return (
         <>
-            <li className="list-group-item bg-light text-secondary ">{props.ertek}</li>
+            <div className=" bg-light text-secondary p-2" onClick={kivalaszt}>{props.ertek}</div>
         </>
     );
 }

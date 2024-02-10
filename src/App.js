@@ -1,14 +1,27 @@
+import { useState } from "react";
 import { adatok } from "./adatok/adatok.js";
 import Kategoriak from "./components/Kategoriak.js";
+import Kivalasztott from "./components/Kivalasztott.js";
 
 function App() {
+    const [kivalasztottLista, setKivalasztottLista] = useState([]);
+
+    function kivalaszt(ertek) {
+        const a = kivalasztottLista;
+        a.push(ertek);
+        setKivalasztottLista([...a]);
+    }
     return (
         <div className="container">
             <header className="App-header">
                 <h1>React Context API</h1>
             </header>
+            <section>
+                <h5>Kiválasztott virágok</h5>
+                <Kivalasztott lista={kivalasztottLista} />
+            </section>
             <article>
-                <Kategoriak lista={adatok}  />
+                <Kategoriak lista={adatok} kivalaszt={kivalaszt} />
             </article>
             <aside>
                 <h5 className="pt-5">Hasznos linkek:</h5>
@@ -33,7 +46,9 @@ function App() {
                 </ul>
             </aside>
             <footer>
-                <p className="text-center"><b>Próbáld ki, kísérletezz! Jó tanulást kívánok!</b></p>
+                <p className="text-center">
+                    <b>Próbáld ki, kísérletezz! Jó tanulást kívánok!</b>
+                </p>
             </footer>
         </div>
     );
