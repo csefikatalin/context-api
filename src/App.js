@@ -17,7 +17,7 @@ function App() {
                 <h1>React Context API</h1>
             </header>
             <section>
-                <h5>Kiválasztott virágok</h5>
+                <h5 className="pt-5">Kiválasztott virágok</h5>
                 <Kivalasztott lista={kivalasztottLista} />
             </section>
             <article>
