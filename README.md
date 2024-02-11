@@ -25,25 +25,28 @@ Az <b>App</b> komponens fogja módosítani azt a state-t a kivalaszt függvény�
 
 ## Context API
 
-    1.	lépés: Hozzunk létre egy context mappát és hozzuk létre egy fájlt KivalasztContext néven  (nem kötelező, csak szokás).
-        A beírandó kód:
+1.	lépés: Hozzunk létre egy context mappát és hozzuk létre egy fájlt KivalasztContext néven  (nem kötelező, csak szokás).  A beírandó kód:
+       
         import { createContext } from "react";
         export const KivalasztContext=createContext("")
 
-    2.	lépés: Az App.js-ben importáljuk be a KivalasztContext contextünket.
+2.	lépés: Az App.js-ben importáljuk be a KivalasztContext contextünket.
+
         import { KivalasztContext } from "./context/KivalasztContext.js";
-        Adjuk meg, hogy mely komponensekben akarjuk használni az itt definiált Context-e, azaz öleljük körbe a komponens egy Providerrel.
-        Itt kell a value attributumban megadni, hogy milyen változókhoz engedünk hozzáférést. Jelen esetben a  state-ben megadott változókat fogja ez jelenteni.
+
+Adjuk meg, hogy mely komponensekben akarjuk használni az itt definiált Context-e, azaz öleljük körbe a komponens egy Providerrel.
+Itt kell a value attributumban megadni, hogy milyen változókhoz engedünk hozzáférést. Jelen esetben a  state-ben megadott változókat fogja ez jelenteni.
 
 <img src="public/kepek/provider.png" alt="provider">
  
-    3.	lépés: Az Elem komponensben, azaz a hívási lánc végén álló komponensben dolgozunk a továbbiakban:  importáljuk ide is a KivalasztContext-et, és a useContext Hook-ot. 
-        A useContext Hook egy objektummal tér vissza, mely tartalmazza azokat a változókat, amelyeket definiáltunk a Context-ben.
+3.	lépés: Az Elem komponensben, azaz a hívási lánc végén álló komponensben dolgozunk a továbbiakban:  importáljuk ide is a KivalasztContext-et, és a useContext Hook-ot.
+
+A useContext Hook egy objektummal tér vissza, mely tartalmazza azokat a változókat, amelyeket definiáltunk a Context-ben.
 
 <img src="public/kepek/useContext.png" alt="provider">
  
-    4.	lépés: Ezután már kitörölhetjük az összes felsőbb komponensláncból  a kivalaszt függvényeinket (a fenti képen zölddel jelölve) és a hozzá tartozó props láncolatot ( a fenti képen pirossal jelölve), mert most az Elem komponensben már közvetlenül meg tudjuk hívni a state változtatását.
+4.	lépés: Ezután már kitörölhetjük az összes felsőbb komponensláncból  a kivalaszt függvényeinket (a fenti képen zölddel jelölve) és a hozzá tartozó props láncolatot ( a fenti képen pirossal jelölve), mert most az Elem komponensben már közvetlenül meg tudjuk hívni a state változtatását.
 
-    Az Elem komponensünk most így fog kinézni:
+Az Elem komponensünk most így fog kinézni:
 
 <img src="public/kepek/Elem_koponens_context.PNG" alt="provider">
