@@ -1,8 +1,7 @@
 import { useContext } from "react";
 import { KivalasztContext } from "../context/KivalasztContext";
 export default function Elem(props) {
-    const { kivalasztottLista, setKivalasztottLista } =
-        useContext(KivalasztContext);
+    const { kivalasztottLista, setKivalasztottLista } =  useContext(KivalasztContext);
     function kivalaszt() {
         const a = kivalasztottLista;
         a.push(props.ertek);
@@ -17,3 +16,5 @@ export default function Elem(props) {
         </>
     );
 }
+
+
