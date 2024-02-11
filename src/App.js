@@ -20,7 +20,7 @@ function App() {
                     <Kategoriak lista={adatok} />
                 </article>
             </KivalasztProvider>
-            
+
             <aside>
                 <h5 className="pt-5">Hasznos linkek:</h5>
 
@@ -39,6 +39,14 @@ function App() {
                             href="https://www.freecodecamp.org/news/context-api-in-react/"
                         >
                             FreeCodeCamp
+                        </a>
+                    </li>
+                    <li className="nav-item">
+                        <a
+                            className="nav-link"
+                            href="https://www.youtube.com/watch?v=sSN7fHHTEKc"
+                        >
+                            Providerek használata - Code With Tony videó
                         </a>
                     </li>
                     <li className="nav-item">
