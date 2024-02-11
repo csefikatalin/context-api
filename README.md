@@ -15,37 +15,37 @@ Itt az App komponens a Kategoriak->Kategoria->Elem komponens soron keresztül bu
 Az alábbi jobb oldali ábrán látszik a komponenshierarchia.
 <img src="public/kepek/komponenshierarchia.png" alt="komponens hierarchia">
 
-Az <b>App</b> komponens fogja módosítani azt a state-t a kivalaszt függvényében, amit a <b>Kivalasztott</b> komponens jelenít majd meg. Ehhez azonban az kell, hogy az Elem komponens tudja, hogy az App <b>kivalaszt</b> függévényét kell meghívnia, ha rákattintunk az elemre. Ehhez a teljes Kategoriak -> Kategoria -> Elem láncon végig kell buborékoltatni a propsokon keresztül az információt (piros nyilak), majd visszafelé a függvényhívásokon keresztül vissza kell juttatni az adatot (zöld nyilak).
+Az **App** komponens fogja módosítani azt a state-t a kivalaszt függvényében, amit a **Kivalasztott** komponens jelenít majd meg. Ehhez azonban az kell, hogy az Elem komponens tudja, hogy az App **kivalaszt** függévényét kell meghívnia, ha rákattintunk az elemre. Ehhez a teljes Kategoriak -> Kategoria -> Elem láncon végig kell buborékoltatni a propsokon keresztül az információt (piros nyilak), majd visszafelé a függvényhívásokon keresztül vissza kell juttatni az adatot (zöld nyilak).
 
-<b>Nem lehetne ezt egyszerűbben, kihagyva ezt a hosszú láncolatot? </b>
+**Nem lehetne ezt egyszerűbben, kihagyva ezt a hosszú láncolatot? **
 
-<b>Épp ezt a problémát hidalja át a Context API. </b>
+**Épp ezt a problémát hidalja át a Context API. **
 
 <img src="public/kepek/props_state.PNG" alt="propsok és statek buborékoltatása">
 
 ## Context API
 
-1.	lépés: Hozzunk létre egy context mappát és hozzuk létre egy fájlt KivalasztContext néven  (nem kötelező, csak szokás).  A beírandó kód:
+1. Hozzunk létre egy context mappát és hozzuk létre egy fájlt KivalasztContext néven  (nem kötelező, csak szokás).  A beírandó kód:
        
-        import { createContext } from "react";
-        export const KivalasztContext=createContext("")
+    import { createContext } from "react";
+    export const KivalasztContext=createContext("")
 
-2.	lépés: Az App.js-ben importáljuk be a KivalasztContext contextünket.
+2. Az App.js-ben importáljuk be a KivalasztContext contextünket.
 
-        import { KivalasztContext } from "./context/KivalasztContext.js";
+    import { KivalasztContext } from "./context/KivalasztContext.js";
 
 Adjuk meg, hogy mely komponensekben akarjuk használni az itt definiált Context-e, azaz öleljük körbe a komponens egy Providerrel.
 Itt kell a value attributumban megadni, hogy milyen változókhoz engedünk hozzáférést. Jelen esetben a  state-ben megadott változókat fogja ez jelenteni.
 
 <img src="public/kepek/provider.png" alt="provider">
  
-3.	lépés: Az Elem komponensben, azaz a hívási lánc végén álló komponensben dolgozunk a továbbiakban:  importáljuk ide is a KivalasztContext-et, és a useContext Hook-ot.
+3. Az Elem komponensben, azaz a hívási lánc végén álló komponensben dolgozunk a továbbiakban:  importáljuk ide is a KivalasztContext-et, és a useContext Hook-ot.
 
 A useContext Hook egy objektummal tér vissza, mely tartalmazza azokat a változókat, amelyeket definiáltunk a Context-ben.
 
 <img src="public/kepek/useContext.png" alt="provider">
  
-4.	lépés: Ezután már kitörölhetjük az összes felsőbb komponensláncból  a kivalaszt függvényeinket (a fenti képen zölddel jelölve) és a hozzá tartozó props láncolatot ( a fenti képen pirossal jelölve), mert most az Elem komponensben már közvetlenül meg tudjuk hívni a state változtatását.
+4. Ezután már kitörölhetjük az összes felsőbb komponensláncból  a kivalaszt függvényeinket (a fenti képen zölddel jelölve) és a hozzá tartozó props láncolatot ( a fenti képen pirossal jelölve), mert most az Elem komponensben már közvetlenül meg tudjuk hívni a state változtatását.
 
 Az Elem komponensünk most így fog kinézni:
 
