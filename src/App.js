@@ -1,45 +1,47 @@
-import { useState } from "react";
 import { adatok } from "./adatok/adatok.js";
 import Kategoriak from "./components/Kategoriak.js";
 import Kivalasztott from "./components/Kivalasztott.js";
-import { KivalasztContext } from "./context/KivalasztContext.js";
-function App() {
-    const [kivalasztottLista, setKivalasztottLista] = useState([]);
 
- /*    function kivalaszt(ertek) {
-        const a = kivalasztottLista;
-        a.push(ertek);
-        setKivalasztottLista([...a]);
-    } */
+import { KivalasztProvider } from "./context/KivalasztContext.js";
+
+function App() {
     return (
         <div className="container">
             <header className="App-header">
                 <h1>React Context API</h1>
             </header>
-            <section>
-                <h5 className="pt-5">Kiválasztott virágok</h5>
-                <Kivalasztott lista={kivalasztottLista} />
-            </section>
-            <article>
-                <KivalasztContext.Provider value={{kivalasztottLista, setKivalasztottLista}}>
+            <KivalasztProvider>
+                <section>
+                    <h5 className="pt-5">Kiválasztott virágok</h5>
+                    <Kivalasztott />
+                </section>
+                <article>
                     <Kategoriak lista={adatok} />
-                </KivalasztContext.Provider>
-            </article>
+                </article>
+            </KivalasztProvider>
             <aside>
                 <h5 className="pt-5">Hasznos linkek:</h5>
 
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
+                <ul className="nav nav-pills">
+                    <li className="nav-item">
                         <a
-                            class="nav-link"
+                            className="nav-link"
+                            href="https://github.com/csefikatalin/context-api.git"
+                        >
+                            Repo Readme.md
+                        </a>
+                    </li>
+                    <li className="nav-item">
+                        <a
+                            className="nav-link"
                             href="https://www.freecodecamp.org/news/context-api-in-react/"
                         >
                             FreeCodeCamp
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li className="nav-item">
                         <a
-                            class="nav-link"
+                            className="nav-link"
                             href="https://react.dev/learn/passing-data-deeply-with-context"
                         >
                             React kézikönyv - Context
