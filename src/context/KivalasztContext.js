@@ -11,11 +11,17 @@ export const  KivalasztProvider=({ children }) =>{
         setKivalasztottLista([...a]);
         console.log(kivalasztottLista)
     }
+
     return (
         <KivalasztContext.Provider
-            value={{ kivalasztottLista, setKivalasztottLista, kivalaszt }}
+            value={  { kivalasztottLista, setKivalasztottLista, kivalaszt }}
         >
             {children}
         </KivalasztContext.Provider>
     );
 }
+
+
+
+
+  

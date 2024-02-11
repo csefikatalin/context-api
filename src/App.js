@@ -10,6 +10,7 @@ function App() {
             <header className="App-header">
                 <h1>React Context API</h1>
             </header>
+
             <KivalasztProvider>
                 <section>
                     <h5 className="pt-5">Kiválasztott virágok</h5>
@@ -19,6 +20,7 @@ function App() {
                     <Kategoriak lista={adatok} />
                 </article>
             </KivalasztProvider>
+            
             <aside>
                 <h5 className="pt-5">Hasznos linkek:</h5>
 
