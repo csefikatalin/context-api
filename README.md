@@ -107,7 +107,7 @@ Alakítsuk tovább a KivalasztContext.js-t
 
 <img src="public/kepek/kivalasztott2.PNG" alt="provider">
 
-**Így már a providerben egy helyen kezelhetjük a változókat és a függvényeket, melyeket felhasználhatunk a komponenshierarchia bármely pontján. **
+Így már a providerben egy helyen kezelhetjük a változókat és a függvényeket, melyeket felhasználhatunk a komponenshierarchia bármely pontján.
 
 <img src="public/kepek/provider_mukodese.PNG" alt="provider">
 
